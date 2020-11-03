@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-color: #31CE81;
+  --main-hover-color: #24945e;
+  --secondary-color: #72767D;
+  --secondary-light-color: #72767db0;
+  --bg-color: #23262D;
+  --solo-color: #3181CE;
+  --mute-color: #CE3131;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--bg-color);
+}
+
+h1 {
+  font-size: 5rem;
+  font-weight: 100;
+  margin-top: 20vh;
+  color: var(--main-color);
+  text-align: center;
+}
+
+i,
+svg {
+  pointer-events: none;
+}
+
+/* layout */
+
+.drum-rack {
+  margin-left: 5vw;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+}
+
+.channel {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sequencer {
+  display: flex;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.qt {
+  border-right: solid var(--secondary-color) 6px;
+}
+
+.light {
+  height: 4rem;
+  width: 1rem;
+  border: 1px solid var(--secondary-color);
+  cursor: pointer;
+}
+
+select {
+  width: 10rem;
+  height: 4rem;
+  padding: 1rem;
+  font-size: 1rem;
+  border: 1px solid var(--secondary-color);
+  color: #bbb;
+  background: url(./svg/caret-down-solid.svg) 96% / 15% no-repeat var(--bg-color);
+  background-size: 1.3rem;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* mute buttons*/
+
+.controls__mute {
+  height: 4rem;
+  width: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 1px solid var(--secondary-color);
+}
+
+.solo,
+.mute {
+  height: 1rem;
+  width: 1rem;
+  margin: auto;
+  font-size: 0.8rem;
+  line-height: 1rem;
+  text-align: center;
+  color: var(--bg-color);
+  background-color: var(--secondary-color);
+  cursor: pointer;
+}
+
+.solo:hover {
+  background-color: var(--solo-color);
+  opacity: 50%;
+}
+
+.mute:hover {
+  background-color: var(--mute-color);
+  opacity: 40%;
+}
+
+.solo--active {
+  background-color: var(--solo-color);
+}
+
+.mute--active {
+  background-color: var(--mute-color);
+  opacity: 70%;
+}
+
+/* pads */
+
+.pad {
+  height: 4rem;
+  width: 5rem;
+  border: 1px solid var(--secondary-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pad:hover {
+  background-color: var(--secondary-light-color)
+}
+
+/* play button */
+
+.play {
+  height: 6rem;
+  width: 6rem;
+  margin-top: 3rem;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 50%;
+  background: rgb(88, 88, 88);
+  background-color: var(--main-color);
+  color: var(--bg-color);
+  cursor: pointer;
+}
+
+.play-icon {
+  height: 3rem;
+  width: 3rem;
+  transform: translate(6px, 2px);
+}
+
+.play:focus   {
+  outline:none
+}
+
+.play:hover {
+  background-color: var(--main-hover-color);
+}
+
+/* indicators */
+
+.active {
+  background-color: var(--main-color);
+}
+
+.disabled {
+  background-color: var(--secondary-color);
+}
+
+.active:hover {
+  background-color: var(--main-hover-color);
+}
