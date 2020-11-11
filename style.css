@@ -37,14 +37,15 @@ svg {
 /* layout */
 
 .drum-rack {
-  margin-left: 5vw;
+  margin-left: 10vw;
+  margin-right: 10vw;
   display: flex;
   flex-direction: column-reverse;
   justify-content: center;
 }
 
 .channel {
-  width: 70%;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -52,6 +53,7 @@ svg {
 
 .sequencer {
   display: flex;
+  position: relative;
 }
 
 .controls {
@@ -59,10 +61,6 @@ svg {
   align-items: center;
   justify-content: space-between;
   flex: 1;
-}
-
-.qt {
-  border-right: solid var(--secondary-color) 6px;
 }
 
 .light {
@@ -137,40 +135,81 @@ select {
   width: 5rem;
   border: 1px solid var(--secondary-color);
   cursor: pointer;
-  transition: all 0.3s ease;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.step{
+  height: 2rem;
+  width: 5rem;
+  cursor: pointer;
+  position: relative;
+  line-height: 2rem;
+  text-align: center;
+  color: var(--secondary-color);
+  align-content: flex-end;
+}
+
+.step--active{
+  color: var(--bg-color);
+  background-color: var(--secondary-color);
+}
+
+.sequencer__step{
+  align-content: flex-end;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.channel__step{
+  align-content: flex-end;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.controls__step{
+  width: 10rem;
+  height: 2rem;
+
 }
 
 .pad:hover {
   background-color: var(--secondary-light-color)
 }
 
+.stepper {
+  content: '';
+  position: absolute;
+  background-color: #f00;
+  width: 2px;
+  overflow: hidden;
+  height: 0;
+  z-index: 99;
+  /* transition: all 0.2s ease; */
+  /* animation: stepper 1.3s linear; */
+}
+
 /* play button */
 
 .play {
-  height: 6rem;
-  width: 6rem;
+  height: 4rem;
+  width: 4rem;
   margin-top: 3rem;
   font-size: 1.5rem;
   border: none;
   border-radius: 50%;
-  background: rgb(88, 88, 88);
-  background-color: var(--main-color);
-  color: var(--bg-color);
   cursor: pointer;
+  background-color: var(--bg-color);
 }
 
-.play-icon {
-  height: 3rem;
-  width: 3rem;
-  transform: translate(6px, 2px);
+.fa-play-circle, .fa-stop-circle {
+font-size: 4rem;
+line-height: 100%;
+color: var(--main-color);
 }
 
-.play:focus   {
-  outline:none
-}
-
-.play:hover {
-  background-color: var(--main-hover-color);
+.play:focus {
+  outline: none
 }
 
 /* indicators */
@@ -179,10 +218,14 @@ select {
   background-color: var(--main-color);
 }
 
-.disabled {
+.active.muted {
   background-color: var(--secondary-color);
 }
 
 .active:hover {
   background-color: var(--main-hover-color);
+}
+
+.qt {
+  border-right: solid var(--secondary-color) 6px;
 }

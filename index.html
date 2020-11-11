@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/b5ee560b9a.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./style.css" />
   <title>Drum Machine</title>
 </head>
@@ -13,6 +14,26 @@
     <h1>Drum Machine</h1>
   </header>
   <main class="drum-rack">
+    <div class="channel channel__step">
+      <div class="sequencer sequencer__step">
+        <div class="s0__step step">1</div>
+        <div class="s1__step step">2</div>
+        <div class="s2__step step">3</div>
+        <div class="s3__step step ">4</div>
+        <div class="s4__step step">5</div>
+        <div class="s5__step step">6</div>
+        <div class="s6__step step ">7</div>
+        <div class="s7__step step ">8</div>
+        <div class="s8__step step">9</div>
+        <div class="s9__step step">10</div>
+        <div class="s10__step step">11</div>
+        <div class="s11__step step ">12</div>
+        <div class="s12__step step">13</div>
+        <div class="s13__step step">14</div>
+        <div class="s14__step step">15</div>
+        <div class="s15__step step">16</div>
+      </div>
+    </div>
     <div class="channel sample-1">
       <div class="controls">
         <div class="ch-1__light light active"></div>
@@ -22,11 +43,12 @@
           <option value="./samples/kick-3.mp3">Kick 3</option>
         </select>
         <div class="controls__mute">
-          <div class="ch-1__solo solo solo--active">s</div>
+          <div class="ch-1__solo solo">s</div>
           <div class="ch-1__mute mute">m</div>
         </div>
       </div>
       <div class="sequencer ch-1">
+        <div class="stepper"></div>
         <div class="ch-1__pad s0 pad active"></div>
         <div class="ch-1__pad s1 pad active"></div>
         <div class="ch-1__pad s2 pad"></div>
@@ -47,7 +69,7 @@
     </div>
     <div class="channel sample-2">
       <div class="controls">
-        <div class="ch-2__light light disabled"></div>
+        <div class="ch-2__light light"></div>
         <select name="ch-2__select" id="ch-2__select">
           <option value="./samples/snare-1.mp3">Snare 1</option>
           <option value="./samples/snare-2.mp3">Snare 2</option>
@@ -59,13 +81,14 @@
         </div>
       </div>
       <div class="sequencer ch-2">
+        <div class="stepper"></div>
         <div class="ch-2__pad s0 pad"></div>
         <div class="ch-2__pad s1 pad"></div>
         <div class="ch-2__pad s2 pad"></div>
-        <div class="ch-2__pad s3 pad qt"></div>
+        <div class="ch-2__pad s3 pad active qt"></div>
         <div class="ch-2__pad s4 pad"></div>
         <div class="ch-2__pad s5 pad"></div>
-        <div class="ch-2__pad s6 pad disabled"></div>
+        <div class="ch-2__pad s6 pad"></div>
         <div class="ch-2__pad s7 pad qt"></div>
         <div class="ch-2__pad s8 pad"></div>
         <div class="ch-2__pad s9 pad"></div>
@@ -87,10 +110,11 @@
         </select>
         <div class="controls__mute">
           <div class="ch-3__solo solo">s</div>
-          <div class="ch-3__mute mute mute--active">m</div>
+          <div class="ch-3__mute mute">m</div>
         </div>
       </div>
       <div class="sequencer ch-3">
+        <div class="stepper"></div>
         <div class="ch-3__pad s0 pad"></div>
         <div class="ch-3__pad s1 pad"></div>
         <div class="ch-3__pad s2 pad"></div>
@@ -100,17 +124,23 @@
         <div class="ch-3__pad s6 pad"></div>
         <div class="ch-3__pad s7 pad qt"></div>
         <div class="ch-3__pad s8 pad"></div>
-        <div class="ch-3__pad s9 pad"></div>
+        <div class="ch-3__pad s9 pad active"></div>
         <div class="ch-3__pad s10 pad"></div>
-        <div class="ch-3__pad s11 pad qt"></div>
+        <div class="ch-3__pad s11 pad active qt"></div>
         <div class="ch-3__pad s12 pad"></div>
         <div class="ch-3__pad s13 pad"></div>
         <div class="ch-3__pad s14 pad"></div>
         <div class="ch-3__pad s15 pad"></div>
       </div>
     </div>
-    <button class="play"><img class="play-icon" src="./svg/play-solid.svg" alt="Play button"></button>
+    <button class="play"><i id="play-icon" class="fas fa-play-circle"></i></button>
   </main>
+
+  <audio class="ch1-sample" src="./samples/kick-1.mp3"></audio>
+  <audio class="ch2-sample" src="./samples/snare-1.mp3"></audio>
+  <audio class="ch3-sample" src="./samples/hh-1.mp3"></audio>
+
+
   <script src="main.js"></script>
 </body>
 
