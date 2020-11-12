@@ -75,3 +75,58 @@ pads.forEach(pad => {
         pad.classList.toggle('active');
     });
 });
+
+soloBtns.forEach(soloBtn => {
+    soloBtn.addEventListener("click", (e) => {
+
+        // solo channel by muting other channels
+        const currentChannel = e.target.classList[0].slice(0, 4);
+        pads.forEach(pad => {
+            pad.classList.remove('muted');
+            if (`${pad.classList[0].slice(0, 4)}` !== currentChannel && soloBtn.classList[2] !== 'solo--active') {
+                pad.classList.add('muted')
+            }
+        });
+
+        // update solo state
+        if (soloBtn.classList[2] == 'solo--active') {
+            soloBtns.forEach(soloBtn => {
+                soloBtn.classList.remove('solo--active');
+            });
+        } else {
+            soloBtns.forEach(soloBtn => {
+                soloBtn.classList.remove('solo--active');
+            });
+            soloBtn.classList.toggle('solo--active');
+
+            // toggle mute when soloed
+            muteBtns.forEach(muteBtn => {
+                muteBtn.classList.remove('mute--active');
+            });
+        }
+    });
+});
+
+muteBtns.forEach(muteBtn => {
+    muteBtn.addEventListener("click", (e) => {
+        // reset solo button state and all muted pads
+        soloBtns.forEach(soloBtn => {
+            if (soloBtn.classList[2] == 'solo--active') {
+                console.log('jesten');
+                pads.forEach(pad => {
+                    pad.classList.remove('muted')
+                });
+            }
+            soloBtn.classList.remove('solo--active');
+        });
+
+        // update mute state
+        muteBtn.classList.toggle('mute--active');
+
+        // toggle pad btns to mute each time button is clicked
+        const channelPads = document.querySelectorAll(`.${e.target.classList[0].slice(0, 4)}__pad`);
+        channelPads.forEach(channelPad => {
+            channelPad.classList.toggle('muted')
+        });
+    });
+});
