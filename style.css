@@ -11,6 +11,7 @@
   --main-hover-color: #24945e;
   --secondary-color: #72767D;
   --secondary-light-color: #72767db0;
+  --secondary-dark-color: #161618;
   --bg-color: #23262D;
   --solo-color: #3181CE;
   --mute-color: #CE3131;
@@ -83,6 +84,31 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+}
+
+.footer{
+  background-color: var(--secondary-dark-color);
+  color: var(--secondary-light-color);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+}
+
+.copy{
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  padding: 0.3rem;
+}
+
+.copy-link{
+  color: inherit;
+  text-decoration: none;
+}
+
+.copy-link:hover{
+  color: #aaa;
 }
 
 /* mute buttons*/
@@ -229,3 +255,4 @@ color: var(--main-color);
 .qt {
   border-right: solid var(--secondary-color) 6px;
 }
+
