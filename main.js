@@ -7,13 +7,32 @@ const currentStep = document.querySelectorAll('.step');
 const ch1Sample = document.querySelector('.ch1-sample');
 const ch2Sample = document.querySelector('.ch2-sample');
 const ch3Sample = document.querySelector('.ch3-sample');
+const ch4Sample = document.querySelector('.ch4-sample');
 const playIcon = document.getElementById('play-icon');
+const selectElements = document.querySelectorAll('select');
 
 let index = 0;
 let isPlaying = null;
 let bpm = 120;
 let interval = (60 / bpm / 2) * 1000;
 
+function selectSample(e) {
+    const selectedChannel = e.target.name;
+    const sampleSource = e.target.value;
+    if (selectedChannel == 'ch-1__select') {
+        ch1Sample.src = sampleSource;
+    } else if (selectedChannel == 'ch-2__select') {
+        ch2Sample.src = sampleSource;
+    } else if (selectedChannel == 'ch-3__select') {
+        ch3Sample.src = sampleSource;
+    } else if (selectedChannel == 'ch-4__select') {
+        ch4Sample.src = sampleSource;
+    }
+};
+
+selectElements.forEach(select => {
+    select.addEventListener('change', function (e) { selectSample(e) })
+})
 
 function repeat() {
     let step = index % 16;
@@ -24,13 +43,16 @@ function repeat() {
                 ch1Sample.currentTime = 0;
                 ch1Sample.play();
             }
-            if (bar.classList.contains('ch-2__pad')) {
+            else if (bar.classList.contains('ch-2__pad')) {
                 ch2Sample.play();
                 ch2Sample.currentTime = 0;
             }
-            if (bar.classList.contains('ch-3__pad')) {
+            else if (bar.classList.contains('ch-3__pad')) {
                 ch3Sample.play();
                 ch3Sample.currentTime = 0;
+            } else if (bar.classList.contains('ch-4__pad')) {
+                ch4Sample.play();
+                ch4Sample.currentTime = 0;
             }
         }
     });
