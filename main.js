@@ -4,6 +4,7 @@ const soloBtns = document.querySelectorAll('.solo');
 const muteBtns = document.querySelectorAll('.mute');
 
 const currentStep = document.querySelectorAll('.step');
+const sampleBtns = document.querySelectorAll('.light');
 const ch1Sample = document.querySelector('.ch1-sample');
 const ch2Sample = document.querySelector('.ch2-sample');
 const ch3Sample = document.querySelector('.ch3-sample');
@@ -15,6 +16,40 @@ let index = 0;
 let isPlaying = null;
 let bpm = 120;
 let interval = (60 / bpm / 2) * 1000;
+
+// const activeBtns = document.querySelectorAll('.light');
+// activeBtns.forEach(activeBtn => {
+//     activeBtn.addEventListener("click", (e) => {
+//         console.log(e.target);
+//     })
+
+// })
+
+function activeChannel(e) {
+    console.log(e.target.classList[0])
+    const channel = e.target.classList;
+
+    if (e.target.classList.contains('ch-1')) {
+        ch1Sample.currentTime = 0;
+        ch1Sample.play();
+        console.log('dziala?')
+    }
+    else if (channel.contains('ch-2__light')) {
+        ch2Sample.play();
+        ch2Sample.currentTime = 0;
+    }
+    else if (channel.contains('ch-3')) {
+        ch3Sample.play();
+        ch3Sample.currentTime = 0;
+    } else if (channel.contains('ch-4')) {
+        ch4Sample.play();
+        ch4Sample.currentTime = 0;
+    }
+};
+
+sampleBtns.forEach(sampleBtn => {
+    sampleBtn.addEventListener('click', function (e) { activeChannel(e) })
+})
 
 function selectSample(e) {
     const selectedChannel = e.target.name;

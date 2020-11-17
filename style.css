@@ -89,7 +89,7 @@ select {
 .footer{
   background-color: var(--secondary-dark-color);
   color: var(--secondary-light-color);
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   width: 100vw;
