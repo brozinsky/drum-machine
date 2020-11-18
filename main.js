@@ -5,10 +5,14 @@ const muteBtns = document.querySelectorAll('.mute');
 
 const currentStep = document.querySelectorAll('.step');
 const sampleBtns = document.querySelectorAll('.light');
-const ch1Sample = document.querySelector('.ch1-sample');
-const ch2Sample = document.querySelector('.ch2-sample');
-const ch3Sample = document.querySelector('.ch3-sample');
-const ch4Sample = document.querySelector('.ch4-sample');
+const activeCh1 = document.querySelector('.ch-1__light');
+const activeCh2 = document.querySelector('.ch-2__light');
+const activeCh3 = document.querySelector('.ch-3__light');
+const activeCh4 = document.querySelector('.ch-4__light');
+const ch1Sample = document.querySelector('.ch1__sample');
+const ch2Sample = document.querySelector('.ch2__sample');
+const ch3Sample = document.querySelector('.ch3__sample');
+const ch4Sample = document.querySelector('.ch4__sample');
 const playIcon = document.getElementById('play-icon');
 const selectElements = document.querySelectorAll('select');
 
@@ -17,78 +21,77 @@ let isPlaying = null;
 let bpm = 120;
 let interval = (60 / bpm / 2) * 1000;
 
-// const activeBtns = document.querySelectorAll('.light');
-// activeBtns.forEach(activeBtn => {
-//     activeBtn.addEventListener("click", (e) => {
-//         console.log(e.target);
-//     })
-
-// })
-
-function activeChannel(e) {
-    console.log(e.target.classList[0])
-    const channel = e.target.classList;
-
-    if (e.target.classList.contains('ch-1')) {
-        ch1Sample.currentTime = 0;
-        ch1Sample.play();
-        console.log('dziala?')
-    }
-    else if (channel.contains('ch-2__light')) {
-        ch2Sample.play();
-        ch2Sample.currentTime = 0;
-    }
-    else if (channel.contains('ch-3')) {
-        ch3Sample.play();
-        ch3Sample.currentTime = 0;
-    } else if (channel.contains('ch-4')) {
-        ch4Sample.play();
-        ch4Sample.currentTime = 0;
-    }
-};
-
-sampleBtns.forEach(sampleBtn => {
-    sampleBtn.addEventListener('click', function (e) { activeChannel(e) })
-})
-
 function selectSample(e) {
     const selectedChannel = e.target.name;
     const sampleSource = e.target.value;
-    if (selectedChannel == 'ch-1__select') {
-        ch1Sample.src = sampleSource;
-    } else if (selectedChannel == 'ch-2__select') {
-        ch2Sample.src = sampleSource;
-    } else if (selectedChannel == 'ch-3__select') {
-        ch3Sample.src = sampleSource;
-    } else if (selectedChannel == 'ch-4__select') {
-        ch4Sample.src = sampleSource;
+
+    switch (selectedChannel) {
+        case 'ch-1__select':
+            ch1Sample.src = sampleSource;
+            break;
+        case 'ch-2__select':
+            ch2Sample.src = sampleSource;
+            break;
+        case 'ch-3__select':
+            ch3Sample.src = sampleSource;
+            break;
+        case 'ch-4__select':
+            ch4Sample.src = sampleSource;
+            break;
+    }
+};
+selectElements.forEach(select => {
+    select.addEventListener('change', function (e) { selectSample(e) })
+});
+
+function trySample(e) {
+    const channel = e.target.dataset.ch;
+    playSample(channel);
+};
+
+sampleBtns.forEach(sampleBtn => {
+    sampleBtn.addEventListener('click', function (e) { trySample(e) })
+});
+
+function playSample(sample) {
+    switch (sample) {
+        case '1':
+            ch1Sample.currentTime = 0;
+            ch1Sample.play();
+            blink(activeCh1);
+            break;
+        case '2':
+            ch2Sample.play();
+            ch2Sample.currentTime = 0;
+            blink(activeCh2);
+            break;
+        case '3':
+            ch3Sample.play();
+            ch3Sample.currentTime = 0;
+            blink(activeCh3);
+            break;
+        case '4':
+            ch4Sample.play();
+            ch4Sample.currentTime = 0;
+            blink(activeCh4);
+            break;
     }
 };
 
-selectElements.forEach(select => {
-    select.addEventListener('change', function (e) { selectSample(e) })
-})
+function blink(activeCh) {
+    gsap.from(activeCh, {
+        backgroundColor: '#fff',
+        duration: interval / 1000,
+    });
+};
 
 function repeat() {
     let step = index % 16;
     const activeBars = document.querySelectorAll(`.s${step}`);
     activeBars.forEach(bar => {
         if (bar.classList.contains('active') && !bar.classList.contains('muted')) {
-            if (bar.classList.contains('ch-1__pad')) {
-                ch1Sample.currentTime = 0;
-                ch1Sample.play();
-            }
-            else if (bar.classList.contains('ch-2__pad')) {
-                ch2Sample.play();
-                ch2Sample.currentTime = 0;
-            }
-            else if (bar.classList.contains('ch-3__pad')) {
-                ch3Sample.play();
-                ch3Sample.currentTime = 0;
-            } else if (bar.classList.contains('ch-4__pad')) {
-                ch4Sample.play();
-                ch4Sample.currentTime = 0;
-            }
+            let sample = bar.dataset.ch;
+            playSample(sample);
         }
     });
     const activeStep = document.querySelectorAll(`.s${step}__step`);
@@ -137,16 +140,19 @@ soloBtns.forEach(soloBtn => {
     soloBtn.addEventListener("click", (e) => {
 
         // solo channel by muting other channels
-        const currentChannel = e.target.classList[0].slice(0, 4);
+        // const currentChannel = e.target.classList[0].slice(0, 4);
+        const currentChannel = e.target.dataset.ch;
+
         pads.forEach(pad => {
+            const channelPad = pad.dataset.ch;
             pad.classList.remove('muted');
-            if (`${pad.classList[0].slice(0, 4)}` !== currentChannel && soloBtn.classList[2] !== 'solo--active') {
+            if (channelPad !== currentChannel && soloBtn.classList[1] !== 'solo--active') {
                 pad.classList.add('muted')
             }
         });
 
         // update solo state
-        if (soloBtn.classList[2] == 'solo--active') {
+        if (soloBtn.classList[1] == 'solo--active') {
             soloBtns.forEach(soloBtn => {
                 soloBtn.classList.remove('solo--active');
             });
@@ -168,8 +174,7 @@ muteBtns.forEach(muteBtn => {
     muteBtn.addEventListener("click", (e) => {
         // reset solo button state and all muted pads
         soloBtns.forEach(soloBtn => {
-            if (soloBtn.classList[2] == 'solo--active') {
-                console.log('jesten');
+            if (soloBtn.classList[1] == 'solo--active') {
                 pads.forEach(pad => {
                     pad.classList.remove('muted')
                 });
@@ -180,10 +185,13 @@ muteBtns.forEach(muteBtn => {
         // update mute state
         muteBtn.classList.toggle('mute--active');
 
-        // toggle pad btns to mute each time button is clicked
-        const channelPads = document.querySelectorAll(`.${e.target.classList[0].slice(0, 4)}__pad`);
-        channelPads.forEach(channelPad => {
-            channelPad.classList.toggle('muted')
+        // toggle pad btns to mute
+        const currentChannel = e.target.dataset.ch;
+        pads.forEach(pad => {
+            const channelPad = pad.dataset.ch;
+            if (channelPad == currentChannel) {
+                pad.classList.toggle('muted')
+            }
         });
     });
 });

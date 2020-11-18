@@ -15,7 +15,7 @@
   </header>
   <main class="drum-rack">
     <div class="channel channel__step">
-      <div class="sequencer sequencer__step">
+      <div class="sequencer">
         <div class="s0__step step">1</div>
         <div class="s1__step step">2</div>
         <div class="s2__step step">3</div>
@@ -36,133 +36,133 @@
     </div>
     <div class="channel sample-1">
       <div class="controls">
-        <div class="ch-1__light light"></div>
-        <select name="ch-1__select" id="ch-1__select">
+        <div data-ch='1' class="ch-1__light light"></div>
+        <select name="ch-1__select">
           <option value="./samples/kick-1.mp3">Kick 1</option>
           <option value="./samples/kick-2.mp3">Kick 2</option>
           <option value="./samples/kick-3.mp3">Kick 3</option>
         </select>
         <div class="controls__mute">
-          <div class="ch-1__solo solo">s</div>
-          <div class="ch-1__mute mute">m</div>
+          <div data-ch='1' class="solo">s</div>
+          <div data-ch='1' class="mute">m</div>
         </div>
       </div>
-      <div class="sequencer ch-1">
-        <div data-channel='1' class="stepper"></div>
-        <div data-channel='1' class="ch-1__pad s0 pad active"></div>
-        <div data-channel='1' class="ch-1__pad s1 pad active"></div>
-        <div data-channel='1' class="ch-1__pad s2 pad"></div>
-        <div data-channel='1' class="ch-1__pad s3 pad qt"></div>
-        <div data-channel='1' class="ch-1__pad s4 pad"></div>
-        <div data-channel='1' class="ch-1__pad s5 pad"></div>
-        <div data-channel='1' class="ch-1__pad s6 pad "></div>
-        <div data-channel='1' class="ch-1__pad s7 pad qt"></div>
-        <div data-channel='1' class="ch-1__pad s8 pad"></div>
-        <div data-channel='1' class="ch-1__pad s9 pad"></div>
-        <div data-channel='1' class="ch-1__pad s10 pad active"></div>
-        <div data-channel='1' class="ch-1__pad s11 pad qt"></div>
-        <div data-channel='1' class="ch-1__pad s12 pad"></div>
-        <div data-channel='1' class="ch-1__pad s13 pad"></div>
-        <div data-channel='1' class="ch-1__pad s14 pad"></div>
-        <div data-channel='1' class="ch-1__pad s15 pad"></div>
+      <div class="sequencer">
+        <div data-ch='1' class="stepper"></div>
+        <div data-ch='1' class="s0 pad active"></div>
+        <div data-ch='1' class="s1 pad active"></div>
+        <div data-ch='1' class="s2 pad"></div>
+        <div data-ch='1' class="s3 pad qt"></div>
+        <div data-ch='1' class="s4 pad"></div>
+        <div data-ch='1' class="s5 pad"></div>
+        <div data-ch='1' class="s6 pad "></div>
+        <div data-ch='1' class="s7 pad qt"></div>
+        <div data-ch='1' class="s8 pad"></div>
+        <div data-ch='1' class="s9 pad"></div>
+        <div data-ch='1' class="s10 pad active"></div>
+        <div data-ch='1' class="s11 pad qt"></div>
+        <div data-ch='1' class="s12 pad"></div>
+        <div data-ch='1' class="s13 pad"></div>
+        <div data-ch='1' class="s14 pad"></div>
+        <div data-ch='1' class="s15 pad"></div>
       </div>
     </div>
     <div class="channel sample-2">
       <div class="controls">
-        <div class="ch-2__light light"></div>
-        <select name="ch-2__select" id="ch-2__select">
+        <div data-ch='2' class="ch-2__light light"></div>
+        <select name="ch-2__select">
           <option value="./samples/snare-1.mp3">Snare 1</option>
           <option value="./samples/snare-2.mp3">Snare 2</option>
           <option value="./samples/snare-3.mp3">Snare 3</option>
         </select>
         <div class="controls__mute">
-          <div class="ch-2__solo solo">s</div>
-          <div class="ch-2__mute mute">m</div>
+          <div data-ch='2' class="solo">s</div>
+          <div data-ch='2' class="mute">m</div>
         </div>
       </div>
-      <div class="sequencer ch-2">
-        <div data-channel='2' class="stepper"></div>
-        <div data-channel='2' class="ch-2__pad s0 pad"></div>
-        <div data-channel='2' class="ch-2__pad s1 pad"></div>
-        <div data-channel='2' class="ch-2__pad s2 pad"></div>
-        <div data-channel='2' class="ch-2__pad s3 pad qt"></div>
-        <div data-channel='2' class="ch-2__pad s4 pad active"></div>
-        <div data-channel='2' class="ch-2__pad s5 pad"></div>
-        <div data-channel='2' class="ch-2__pad s6 pad"></div>
-        <div data-channel='2' class="ch-2__pad s7 pad qt"></div>
-        <div data-channel='2' class="ch-2__pad s8 pad"></div>
-        <div data-channel='2' class="ch-2__pad s9 pad"></div>
-        <div data-channel='2' class="ch-2__pad s10 pad"></div>
-        <div data-channel='2' class="ch-2__pad s11 pad qt"></div>
-        <div data-channel='2' class="ch-2__pad s12 pad active"></div>
-        <div data-channel='2' class="ch-2__pad s13 pad"></div>
-        <div data-channel='2' class="ch-2__pad s14 pad"></div>
-        <div data-channel='2' class="ch-2__pad s15 pad"></div>
+      <div class="sequencer">
+        <div data-ch='2' class="stepper"></div>
+        <div data-ch='2' class="s0 pad"></div>
+        <div data-ch='2' class="s1 pad"></div>
+        <div data-ch='2' class="s2 pad"></div>
+        <div data-ch='2' class="s3 pad qt"></div>
+        <div data-ch='2' class="s4 pad active"></div>
+        <div data-ch='2' class="s5 pad"></div>
+        <div data-ch='2' class="s6 pad"></div>
+        <div data-ch='2' class="s7 pad qt"></div>
+        <div data-ch='2' class="s8 pad"></div>
+        <div data-ch='2' class="s9 pad"></div>
+        <div data-ch='2' class="s10 pad"></div>
+        <div data-ch='2' class="s11 pad qt"></div>
+        <div data-ch='2' class="s12 pad active"></div>
+        <div data-ch='2' class="s13 pad"></div>
+        <div data-ch='2' class="s14 pad"></div>
+        <div data-ch='2' class="s15 pad"></div>
       </div>
     </div>
     <div class="channel sample-3">
       <div class="controls">
-        <div class="ch-3__light light"></div>
-        <select name="ch-3__select" id="ch__3-select">
+        <div data-ch='3' class="ch-3__light light"></div>
+        <select name="ch-3__select">
           <option value="./samples/hh-1.mp3">Closed Hat 1</option>
           <option value="./samples/hh-2.mp3">Closed Hat 2</option>
           <option value="./samples/hh-3.mp3">Closed Hat 3</option>
         </select>
         <div class="controls__mute">
-          <div class="ch-3__solo solo">s</div>
-          <div class="ch-3__mute mute">m</div>
+          <div data-ch='3' class="solo">s</div>
+          <div data-ch='3' class="mute">m</div>
         </div>
       </div>
-      <div class="sequencer ch-3">
-        <div data-channel='3' class="stepper"></div>
-        <div data-channel='3' class="ch-3__pad s0 pad"></div>
-        <div data-channel='3' class="ch-3__pad s1 pad"></div>
-        <div data-channel='3' class="ch-3__pad s2 pad"></div>
-        <div data-channel='3' class="ch-3__pad s3 pad qt"></div>
-        <div data-channel='3' class="ch-3__pad s4 pad"></div>
-        <div data-channel='3' class="ch-3__pad s5 pad"></div>
-        <div data-channel='3' class="ch-3__pad s6 pad"></div>
-        <div data-channel='3' class="ch-3__pad s7 pad qt active"></div>
-        <div data-channel='3' class="ch-3__pad s8 pad"></div>
-        <div data-channel='3' class="ch-3__pad s9 pad active"></div>
-        <div data-channel='3' class="ch-3__pad s10 pad"></div>
-        <div data-channel='3' class="ch-3__pad s11 pad qt"></div>
-        <div data-channel='3' class="ch-3__pad s12 pad"></div>
-        <div data-channel='3' class="ch-3__pad s13 pad"></div>
-        <div data-channel='3' class="ch-3__pad s14 pad"></div>
-        <div data-channel='3' class="ch-3__pad s15 pad active"></div>
+      <div class="sequencer">
+        <div data-ch='3' class="stepper"></div>
+        <div data-ch='3' class="s0 pad"></div>
+        <div data-ch='3' class="s1 pad"></div>
+        <div data-ch='3' class="s2 pad"></div>
+        <div data-ch='3' class="s3 pad qt"></div>
+        <div data-ch='3' class="s4 pad"></div>
+        <div data-ch='3' class="s5 pad"></div>
+        <div data-ch='3' class="s6 pad"></div>
+        <div data-ch='3' class="s7 pad qt active"></div>
+        <div data-ch='3' class="s8 pad"></div>
+        <div data-ch='3' class="s9 pad active"></div>
+        <div data-ch='3' class="s10 pad"></div>
+        <div data-ch='3' class="s11 pad qt"></div>
+        <div data-ch='3' class="s12 pad"></div>
+        <div data-ch='3' class="s13 pad"></div>
+        <div data-ch='3' class="s14 pad"></div>
+        <div data-ch='3' class="s15 pad active"></div>
       </div>
     </div>
     <div class="channel sample-4">
       <div class="controls">
-        <div class="ch-4__light light"></div>
-        <select name="ch-4__select" id="ch__4-select">
+        <div data-ch='4' class="ch-4__light light"></div>
+        <select name="ch-4__select">
           <option value="./samples/hh-open-1.mp3">Open Hat 1</option>
           <option value="./samples/hh-open-2.mp3">Open Hat 2</option>
         </select>
         <div class="controls__mute">
-          <div class="ch-4__solo solo">s</div>
-          <div class="ch-4__mute mute">m</div>
+          <div data-ch='4' class="solo">s</div>
+          <div data-ch='4' class="mute">m</div>
         </div>
       </div>
-      <div class="sequencer ch-4">
+      <div class="sequencer">
         <div class="stepper"></div>
-        <div class="ch-4__pad s0 pad"></div>
-        <div class="ch-4__pad s1 pad"></div>
-        <div class="ch-4__pad s2 pad active"></div>
-        <div class="ch-4__pad s3 pad qt"></div>
-        <div class="ch-4__pad s4 pad"></div>
-        <div class="ch-4__pad s5 pad"></div>
-        <div class="ch-4__pad s6 pad"></div>
-        <div class="ch-4__pad s7 pad qt"></div>
-        <div class="ch-4__pad s8 pad"></div>
-        <div class="ch-4__pad s9 pad"></div>
-        <div class="ch-4__pad s10 pad"></div>
-        <div class="ch-4__pad s11 pad qt"></div>
-        <div class="ch-4__pad s12 pad"></div>
-        <div class="ch-4__pad s13 pad"></div>
-        <div class="ch-4__pad s14 pad "></div>
-        <div class="ch-4__pad s15 pad"></div>
+        <div data-ch='4' class="s0 pad"></div>
+        <div data-ch='4' class="s1 pad"></div>
+        <div data-ch='4' class="s2 pad active"></div>
+        <div data-ch='4' class="s3 pad qt"></div>
+        <div data-ch='4' class="s4 pad"></div>
+        <div data-ch='4' class="s5 pad"></div>
+        <div data-ch='4' class="s6 pad"></div>
+        <div data-ch='4' class="s7 pad qt"></div>
+        <div data-ch='4' class="s8 pad"></div>
+        <div data-ch='4' class="s9 pad"></div>
+        <div data-ch='4' class="s10 pad"></div>
+        <div data-ch='4' class="s11 pad qt"></div>
+        <div data-ch='4' class="s12 pad"></div>
+        <div data-ch='4' class="s13 pad"></div>
+        <div data-ch='4' class="s14 pad "></div>
+        <div data-ch='4' class="s15 pad"></div>
       </div>
     </div>
     <button class="play"><i id="play-icon" class="fas fa-play-circle"></i></button>
@@ -171,11 +171,12 @@
         href="https://github.com/brozinsky">brozinsky</a>. All Rights
       Reserved</small></footer>
 
-  <audio class="ch1-sample" src="./samples/kick-1.mp3"></audio>
-  <audio class="ch2-sample" src="./samples/snare-1.mp3"></audio>
-  <audio class="ch3-sample" src="./samples/hh-1.mp3"></audio>
-  <audio class="ch4-sample" src="./samples/hh-open-1.mp3"></audio>
+  <audio class="ch1__sample" src="./samples/kick-1.mp3"></audio>
+  <audio class="ch2__sample" src="./samples/snare-1.mp3"></audio>
+  <audio class="ch3__sample" src="./samples/hh-1.mp3"></audio>
+  <audio class="ch4__sample" src="./samples/hh-open-1.mp3"></audio>
 
+  <script src="    https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
   <script src="main.js"></script>
 </body>
 
